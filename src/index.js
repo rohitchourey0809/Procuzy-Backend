@@ -9,7 +9,11 @@ const app = express();
 const port = 8000;
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+  })
+);
 
 const mongoURI =
   "mongodb+srv://rohit1995chourey:rohit321@nodeapp.r62ctns.mongodb.net/?retryWrites=true&w=majority";
