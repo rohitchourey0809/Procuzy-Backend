@@ -6,7 +6,7 @@ const Article = require("./models/Article"); // Ensure your Article model is cor
 const { scrapeDummyArticles } = require("./scraper");
 
 const app = express();
-const port = process.env.PORT || 8000;
+const port = 8000;
 
 app.use(bodyParser.json());
 app.use(cors());
