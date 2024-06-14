@@ -32,7 +32,6 @@ mongoose.connection.on("disconnected", () => {
   console.log("Mongoose disconnected from MongoDB Atlas");
 });
 
-// Simulate scraping using dummy HTML content
 const dummyHtmlContent = `
  <div class="postArticle">
   <div class="mo mp mq mr ms mt mu mv mw mx">
@@ -40,6 +39,8 @@ const dummyHtmlContent = `
       <h2 class="be jh my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw ee ef eg ei ek bj">Article 1: Title</h2>
       <div class="nx">
         <h3 class="be b hk z ee ji ef eg jj ei ek fd">Article 1: Subtitle</h3>
+        <span class="author">Author 1</span>
+        <time datetime="2024-06-14">June 14, 2024</time>
       </div>
     </a>
   </div>
@@ -51,6 +52,8 @@ const dummyHtmlContent = `
       <h2 class="be jh my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw ee ef eg ei ek bj">Article 2: Title</h2>
       <div class="nx">
         <h3 class="be b hk z ee ji ef eg jj ei ek fd">Article 2: Subtitle</h3>
+        <span class="author">Author 2</span>
+        <time datetime="2024-06-13">June 13, 2024</time>
       </div>
     </a>
   </div>
@@ -62,6 +65,8 @@ const dummyHtmlContent = `
       <h2 class="be jh my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw ee ef eg ei ek bj">Article 3: Title</h2>
       <div class="nx">
         <h3 class="be b hk z ee ji ef eg jj ei ek fd">Article 3: Subtitle</h3>
+        <span class="author">Author 3</span>
+        <time datetime="2024-06-12">June 12, 2024</time>
       </div>
     </a>
   </div>
@@ -73,6 +78,8 @@ const dummyHtmlContent = `
       <h2 class="be jh my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw ee ef eg ei ek bj">Article 4: Title</h2>
       <div class="nx">
         <h3 class="be b hk z ee ji ef eg jj ei ek fd">Article 4: Subtitle</h3>
+        <span class="author">Author 4</span>
+        <time datetime="2024-06-11">June 11, 2024</time>
       </div>
     </a>
   </div>
@@ -84,12 +91,14 @@ const dummyHtmlContent = `
       <h2 class="be jh my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw ee ef eg ei ek bj">Article 5: Title</h2>
       <div class="nx">
         <h3 class="be b hk z ee ji ef eg jj ei ek fd">Article 5: Subtitle</h3>
+        <span class="author">Author 5</span>
+        <time datetime="2024-06-10">June 10, 2024</time>
       </div>
     </a>
   </div>
 </div>
-
 `;
+
 
 app.post("/scrape", async (req, res) => {
   try {
