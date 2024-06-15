@@ -2,8 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const Article = require("./models/Article"); // Ensure your Article model is correctly defined
-const { scrapeDummyArticles } = require("./scraper");
+const Article = require("./models/Article"); 
+const { scrapeDummyArticles, fetchMediumArticles } = require("./scraper");
 
 const app = express();
 const port = 8000;
@@ -119,6 +119,17 @@ app.get("/articles", async (req, res) => {
   } catch (error) {
     console.error("Error fetching articles:", error);
     res.status(500).json({ error: "Failed to fetch articles" });
+  }
+});
+
+app.get("/medium/:topic", async (req, res) => {
+  try {
+    const topic = req.params.topic;
+    const articles = await fetchMediumArticles(topic);
+    res.json(articles);
+  } catch (error) {
+    console.error("Fetching Medium articles failed:", error);
+    res.status(500).json({ error: "Fetching Medium articles failed" });
   }
 });
 
